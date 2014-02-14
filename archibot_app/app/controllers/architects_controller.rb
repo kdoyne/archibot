@@ -15,7 +15,7 @@ class ArchitectsController < ApplicationController
   def create
     @architect = Architect.new(user_params)
     @architect.save
-    redirect_to architect_path
+    redirect_to architect_path(@architect.id)
   end
 
   def edit

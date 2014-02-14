@@ -1,15 +1,15 @@
 <%= form_for [@architect, @building] do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
 
-  <%= f.label :address %>
-  <%= f.text_field :address %>
+  <%= f.label :address %><br>
+  <%= f.text_field :address %><br>
 
-  <%= f.label :year_built %>
-  <%= f.text_field :year_built %>
+  <%= f.label :year_built %><br>
+  <%= f.text_field :year_built %><br>
 
-  <%= f.label :photo_url %>
-  <%= f.url_field :photo_url %>
+  <%= f.label :photo_url %><br>
+  <%= f.url_field :photo_url %><br>
 
   <%= f.submit %>
 <%end%>

@@ -55,12 +55,10 @@ private
   end
 
   def get_map(building, array)
-    if array[2].nil?
-      map_from_google = "http://maps.googleapis.com/maps/api/staticmap?center=#{building.latitude},#{building.longitude}&zoom=13&size=1600x1300&maptype=roadmap&markers=color:red%7Clabel:S%7C#{building.latitude},#{building.longitude}&sensor=false&key=#{GOOGLE_CLIENT_ID}"
-    else
-      map_from_google = "http://maps.googleapis.com/maps/api/staticmap?center=#{building.latitude},#{building.longitude}&zoom=13&size=1600x1300&maptype=roadmap&markers=color:red%7Clabel:S%7C#{building.latitude},#{building.longitude}&markers=color:green%7Clabel:G%7C#{array[0].latitude},#{array[0].longitude}&markers=color:green%7Clabel:G%7C#{array[1].latitude},#{array[1].longitude},markers=color:green%7Clabel:G%7C#{array[2].latitude},#{array[2].longitude}&sensor=false&key=#{GOOGLE_CLIENT_ID}"
-    end
-  binding.pry
+    each_result = array.map do |building| "markers=color:green%7Clabel:G%7C#{building.latitude},#{building.longitude}&" end
+
+      map_from_google = "http://maps.googleapis.com/maps/api/staticmap?center=#{building.latitude},#{building.longitude}&zoom=13&size=1600x1300&maptype=roadmap&markers=color:red%7Clabel:S%7C#{building.latitude},#{building.longitude}&"+each_result.join+"sensor=false&key=#{GOOGLE_CLIENT_ID}"
+
   return map_from_google
 end
 
