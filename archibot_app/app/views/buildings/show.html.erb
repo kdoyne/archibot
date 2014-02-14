@@ -1,0 +1,28 @@
+<%= @building.name%>
+<br>
+<%= @building.year_built%>
+<br>
+<img src="<%= @building.photo_url %>">
+<br>
+
+Other buildings in the database close to this one:
+<ul>
+  <% if !@results[0].nil? %>
+<% @results.each do |building| %>
+<li><%=link_to("#{building.name}", architect_building_path(building.architect.id, building.id)) %></li>
+<%end%>
+<%else%>
+<%end%>
+<br>
+
+
+<%=link_to("edit", edit_architect_building_path(@architect,@building)) %>
+
+<img src="<%= @map %>">
+
+<br>
+<form action="/architects/<%= @architect.id %>/buildings/<%= @building.id%>" method="POST" >
+  <input type="hidden" name="_method" value="DELETE" />
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <button>Delete this building</button>
+</form>

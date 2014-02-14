@@ -1,0 +1,9 @@
+<h2>Architects</h2>
+
+<% @architects.each do |architect| %>
+    <div class="architect"><p>
+    <%=link_to("#{architect.name}", architect) %><br>
+    </p></div>
+  <%end%>
+
+<%=link_to("Add a new architect", new_architect_path) %>

@@ -1,0 +1,16 @@
+<h2><%= @architect.name %></h2>
+<br>
+<h3><%= @architect.style %></h3>
+<br>
+<%=link_to("Buildings by this architect", architect_buildings_path(@architect.id)) %>
+<br>
+<%=link_to("Add a buiding to this architect", architect_buildings_path(@architect.id)) %>
+
+<%=link_to("Edit this architect", edit_architect_path) %>
+<br>
+
+<%= form_tag architect_path(@architect), method: "delete" do %>
+  <%= submit_tag("Delete") %>
+  <% end %>
+
+<%=link_to("Back to all architects", architects_path) %>
