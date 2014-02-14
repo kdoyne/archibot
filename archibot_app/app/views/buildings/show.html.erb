@@ -1,3 +1,4 @@
+<br>
 <%= @building.name%>
 <br>
 <%= @building.year_built%>
@@ -17,7 +18,13 @@ Other buildings in the database close to this one:
 
 
 <%=link_to("edit", edit_architect_building_path(@architect,@building)) %>
-
+<% unless @location == nil %>
+<br>Some photos taken near this location, from instagram:<br>
+<% @photos.each do |photo| %>
+<img src = "<%=photo%>">
+<%end%>
+<%end%>
+<br>
 <img src="<%= @map %>">
 
 <br>
