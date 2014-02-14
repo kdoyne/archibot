@@ -1,28 +1,15 @@
-== README
+##Archibot
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+GA WDI NYC Jan 14, Project 1
 
-Things you may want to cover:
+###Description
 
-* Ruby version
+This is an application that is designed for people visiting cities. You can add a building of architectural significance and it will show buildings that other people have added in the area of that building. Can also add/sort by architect. 
 
-* System dependencies
+###Gems, APIs, libraries
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Geocoder
+* Google Static Maps
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+###User Stories
