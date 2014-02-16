@@ -11,8 +11,8 @@
  *= require_self
  *= require_tree .
  */
-div smallpics{
-  width: 50px;
+img {
+  width: 200px;
 }
 
 header{
