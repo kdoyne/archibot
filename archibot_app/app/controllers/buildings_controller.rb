@@ -40,6 +40,18 @@ class BuildingsController < ApplicationController
     redirect_to architect
   end
 
+  def favorite
+    @building = Building.find(params[:id])
+      current_user.buildings << @building
+      redirect_to architect_building_path
+  end
+
+  def unfavorite
+    @building = Building.find(params[:id])
+      current_user.buildings.delete(@building)
+      redirect_to architect_building_path
+  end
+
 private
 
   def user_params
@@ -59,8 +71,8 @@ private
   end
 
   def get_map(building, array)
-    each_result = array.map { |building| "markers=color:green%7Clabel:G%7C#{building.latitude},#{building.longitude}&" }
-    map_from_google = "http://maps.googleapis.com/maps/api/staticmap?center=#{building.latitude},#{building.longitude}&zoom=13&size=1600x1300&maptype=roadmap&markers=color:red%7Clabel:S%7C#{building.latitude},#{building.longitude}&"+each_result.join+"sensor=false&key=#{GOOGLE_CLIENT_ID}"
+    each_result = array.map { |building| "markers=color:green%7Clabel:%7C#{building.latitude},#{building.longitude}&" }
+    map_from_google = "http://maps.googleapis.com/maps/api/staticmap?center=#{building.latitude},#{building.longitude}&zoom=13&size=1300x1000&maptype=roadmap&markers=color:red%7Clabel:%7C#{building.latitude},#{building.longitude}&"+each_result.join+"sensor=false&key=#{GOOGLE_CLIENT_ID}"
     return map_from_google
   end
 
@@ -78,6 +90,7 @@ private
     @instagram_photos = [return_hash["data"].sample["images"]["low_resolution"]["url"], return_hash["data"].sample["images"]["low_resolution"]["url"],return_hash["data"].sample["images"]["low_resolution"]["url"]]
   end
 end
+
 
 
 

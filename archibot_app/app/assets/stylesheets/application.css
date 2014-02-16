@@ -11,8 +11,12 @@
  *= require_self
  *= require_tree .
  */
-img {
+.smallpics img {
   width: 200px;
+}
+
+.map {
+  width: 300px;
 }
 
 header{

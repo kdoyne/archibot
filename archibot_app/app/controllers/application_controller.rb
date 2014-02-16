@@ -13,12 +13,13 @@ end
 
 def admin?
   if logged_in?
-   current_user.admin
+   current_user.is_admin
   else
    false
   end 
 end
 
-helper_method :current_user, :logged_in?
+helper_method :current_user, :logged_in?, :admin? 
+
 
 end

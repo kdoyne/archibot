@@ -19,6 +19,5 @@ class Building < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode
   belongs_to :architect
-  has_many :favorite_buildings
-  has_many :favorited_by, through: :favorite_recipies, source: :user
+  has_and_belongs_to_many :users
 end

@@ -7,9 +7,16 @@
 <p>Email Address:
   <%= @user.email %></p>
 
+
+<% @favorites.each do |favorite| %>
+<%= favorite.name %>
+<%end%>
+<br>
+
 <a href="/users/<%= @user.id %>/edit">Edit my info</a>
 <form action="/users/<%= @user.id%>" method="POST">
   <input type ="hidden" name="_method" value="DELETE">
   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 <button>Delete Account</button>
 </form>
+

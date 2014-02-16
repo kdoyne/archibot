@@ -15,6 +15,7 @@ before_action :load_user, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @favorites = current_user.buildings
   end
 
   def edit

@@ -17,8 +17,10 @@ Suggested buildings to add:
 <%end%>
 </ul>
 
+<% if @user = admin? %>
 <%= form_tag architect_path(@architect), method: "delete" do %>
   <%= submit_tag("Delete") %>
   <% end %>
+<%end%>
 
 <%=link_to("Back to all architects", architects_path) %>

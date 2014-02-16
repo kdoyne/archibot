@@ -14,6 +14,5 @@ class User < ActiveRecord::Base
   validates :last_name, {presence: true}
   validates :email, {presence: true, uniqueness: true}
   has_secure_password
-  has_many :favorite_buildings
-  has_many :favorites, through: :favorite_buildings
+  has_and_belongs_to_many :buildings
 end

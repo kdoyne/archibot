@@ -1,7 +1,7 @@
 <br>
-<%= @building.name%>
+<h2><%= @building.name%></h2>
 <br>
-<%= @building.year_built%>
+Year Constructed: <%= @building.year_built%>
 <br>
 <div>
 <img src="<%= @building.photo_url %>">
@@ -19,6 +19,12 @@ Other buildings in the database close to this one:
 <br>
 
 
+<% if current_user %>
+  <%= link_to "favorite", favorite_path, method: :post %>
+  <%= link_to "unfavorite", unfavorite_path, method: :post %>
+<% end %>
+
+
 <%=link_to("edit", edit_architect_building_path(@architect,@building)) %>
 <% unless @location == nil %>
 <br>Some photos taken near this location, from instagram:<br>
@@ -27,11 +33,16 @@ Other buildings in the database close to this one:
 <%end%>
 <%end%>
 <br>
+
+<div class="map">
 <img src="<%= @map %>">
+</div class="map">
 
 <br>
+<% if @user = admin? %>
 <form action="/architects/<%= @architect.id %>/buildings/<%= @building.id%>" method="POST" >
   <input type="hidden" name="_method" value="DELETE" />
     <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
   <button>Delete this building</button>
 </form>
+<%end%>
