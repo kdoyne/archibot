@@ -3,8 +3,7 @@ ArchibotApp::Application.routes.draw do
     resources :buildings
   end
 
-  resources :users  do
-  end
+  resources :users
 
   get "/login", to: "sessions#new"
   post "/sessions", to: "sessions#create"
@@ -12,6 +11,6 @@ ArchibotApp::Application.routes.draw do
 
   root "splash#index"
 
-  get"/buildings", to: "buildings#index"
+  get "/buildings", to: "buildings#index"
 
 end

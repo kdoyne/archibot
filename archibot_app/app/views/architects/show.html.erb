@@ -3,12 +3,19 @@
 <br>
 <h3><%= @architect.style %></h3>
 <br>
-<%=link_to("Buildings by this architect", architect_buildings_path(@architect.id)) %>
+<%=link_to("Buildings by this architect in the database", architect_buildings_path(@architect.id)) %>
 <br>
 <%=link_to("Add a buiding to this architect", architect_buildings_path(@architect.id)) %>
-
+<br>
 <%=link_to("Edit this architect", edit_architect_path) %>
 <br>
+
+Suggested buildings to add:
+<ul>
+<% @buildings_designed.each do |result| %>
+<li><%= result %></li>
+<%end%>
+</ul>
 
 <%= form_tag architect_path(@architect), method: "delete" do %>
   <%= submit_tag("Delete") %>

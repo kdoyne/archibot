@@ -13,8 +13,22 @@
  */
 header{
   background-color: rgba(51, 204, 255, 1);
-  color: white;
-  position: fixed;
+  color: #2F4F4F;
+  width: 100%;
+}
+
+body {
+  margin-top: 20px;
+  background-color: rgba(51,204,255,.3);
+  padding-left: 20px;
+}
+
+h2 {
+  color: #2F4F4F;
+}
+
+h1 {
+  color: #2F4F4F;
 }
 
 a:link{
@@ -24,8 +38,3 @@ a:link{
 a:visited{
   color: #2F4F4F;
   }
-
-body {
-  margin-top: 20px;
-  background-color: rgba(51,204,255,.3);
-}
