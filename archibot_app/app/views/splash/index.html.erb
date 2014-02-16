@@ -6,3 +6,8 @@
 </div>
 
 <p><%= link_to "View the collection", architects_path %><p>
+<div smallpics>
+<% @photos.each do |photo| %>
+<img src = "<%=photo%>">
+<%end%>
+</div smallpics>
