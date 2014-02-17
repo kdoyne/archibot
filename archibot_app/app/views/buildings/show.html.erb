@@ -20,11 +20,14 @@ Other buildings in the database close to this one:
 
 
 <% if current_user %>
+<% if !current_user.buildings.include?(@building)%>
   <%= link_to "favorite", favorite_path, method: :post %>
+  <% else %>
   <%= link_to "unfavorite", unfavorite_path, method: :post %>
+  <% end %>
 <% end %>
 
-
+<br>
 <%=link_to("edit", edit_architect_building_path(@architect,@building)) %>
 <% unless @location == nil %>
 <br>Some photos taken near this location, from instagram:<br>
@@ -33,16 +36,17 @@ Other buildings in the database close to this one:
 <%end%>
 <%end%>
 <br>
-
+<br>
 <div class="map">
 <img src="<%= @map %>">
 </div class="map">
 
 <br>
+
 <% if @user = admin? %>
-<form action="/architects/<%= @architect.id %>/buildings/<%= @building.id%>" method="POST" >
-  <input type="hidden" name="_method" value="DELETE" />
-    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-  <button>Delete this building</button>
-</form>
+<%= form_tag architect_building_path(@architect, @building), method: "delete" do %>
+  <%= submit_tag("Delete") %>
+  <% end %>
 <%end%>
+
+

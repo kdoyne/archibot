@@ -15,8 +15,16 @@
   width: 200px;
 }
 
-.map {
-  width: 300px;
+.map img {
+  width: 450px;
+}
+
+h2 {
+  font-family: 'Comfortaa', cursive;
+}
+
+p {
+  font-family: 'Comfortaa', thin;
 }
 
 header{
@@ -33,10 +41,12 @@ body {
 
 h2 {
   color: #2F4F4F;
+  font-family: 'Comfortaa';
 }
 
 h1 {
   color: #2F4F4F;
+  font-family: 'Comfortaa';
 }
 
 a:link{
