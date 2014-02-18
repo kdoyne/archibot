@@ -1,3 +1,15 @@
 <h2>Add a Building for this Architect</h2>
 
+<% unless @building.nil? || @building.id.nil? %>
+  <div id="errors">
+    <h2>Errors!</h2>
+    <ul>
+      <% @user.errors.messages.each do |field,error| %>
+        <li><%= "#{field.capitalize} #{error.first}!" %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <%= render "form" %>

@@ -11,6 +11,7 @@
  *= require_self
  *= require_tree .
  */
+
 .smallpics img {
   width: 200px;
 }
@@ -20,8 +21,10 @@
 }
 
 .insta img {
+  float: left;
+  display: inline-block;
   width: 300px;
-  display: inline;
+  padding: 5px;
 }
 
 h2 {

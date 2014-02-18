@@ -24,7 +24,11 @@ class BuildingsController < ApplicationController
     @building = Building.new(user_params)
     @building.architect = @architect
     @building.save
-    redirect_to architect_buildings_path
+    if @building.save
+      redirect_to architect_building_path(@architect, @building)
+    else
+      render(:new)
+    end
   end
 
   def edit

@@ -14,6 +14,13 @@
 </ul>
 <br>
 
+<ul>
+<% @favorite_architects.each do |architect| %>
+<li><%=link_to("#{architect.name}", architect_path(architect.id)) %></li>
+<%end%>
+</ul>
+<br>
+
 <a href="/users/<%= @user.id %>/edit">Edit my info</a>
 <form action="/users/<%= @user.id%>" method="POST">
   <input type ="hidden" name="_method" value="DELETE">

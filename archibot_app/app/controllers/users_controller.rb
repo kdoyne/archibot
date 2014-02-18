@@ -15,7 +15,12 @@ before_action :load_user, only: [:show, :edit, :update, :destroy]
   end
 
   def show
-    @favorites = current_user.buildings
+   if current_user.buildings != nil 
+    @favorites = current_user.buildings 
+  end
+   if current_user.architects != nil 
+    @favorite_architects = current_user.architects
+  end
   end
 
   def edit
