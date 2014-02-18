@@ -2,6 +2,7 @@ class ArchitectsController < ApplicationController
   before_action :load_architect, only: [:show, :edit, :destroy]
 
   def index
+    @items = Architect.search(params[:search])
     @architects = Architect.all
   end
 
@@ -48,6 +49,10 @@ class ArchitectsController < ApplicationController
     @architect = Architect.find(params[:id])
       current_user.architects.delete(@architect)
       redirect_to architect_path
+  end
+
+  def search
+    @items = Architect.search(params[:search])
   end
 
 private 

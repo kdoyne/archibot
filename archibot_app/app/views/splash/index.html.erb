@@ -11,3 +11,11 @@
 <img src = "<%=photo%>">
 <%end%>
 </div class="smallpics">
+
+<%= form_tag architects_path, :method => 'get' do %>
+    <p>
+    <%= text_field_tag :search, nil, :placeholder => "Search architects here" %>
+    <%= submit_tag "Search", :name => nil %>
+    </p>
+
+    <% end %>

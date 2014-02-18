@@ -14,4 +14,12 @@ class Architect < ActiveRecord::Base
   validates :style, {presence: true}
   has_many :buildings
   has_and_belongs_to_many :users
+
+def self.search(query)
+  if query
+    find(:all, :conditions => ['name LIKE ?', "%#{query}%"] )
+  else
+    find(:all)
+  end
+end
 end

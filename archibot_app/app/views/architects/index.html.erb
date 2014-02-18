@@ -3,11 +3,20 @@
 <p> Click on the name of an architect or firm to see the info page. Add an architect to the database to see some buildings they designed that you might want to check out!</p>
 <br>
 
+<% unless @items == nil %>
+<% @items.each do |architect| %>
+    <div class="architect"><p>
+    <%=link_to("#{architect.name}", architect) %><br>
+    </p></div>
+  <%end%>
+
+<% else %>
 <% @architects.each do |architect| %>
     <div class="architect"><p>
     <%=link_to("#{architect.name}", architect) %><br>
     </p></div>
   <%end%>
+<%end%>
 
 <br>
 <%=link_to("Add a new architect", new_architect_path) %>
