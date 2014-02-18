@@ -20,4 +20,5 @@ class Building < ActiveRecord::Base
   after_validation :geocode
   belongs_to :architect
   has_and_belongs_to_many :users
+
 end
