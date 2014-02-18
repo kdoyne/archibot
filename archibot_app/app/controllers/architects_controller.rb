@@ -33,7 +33,17 @@ class ArchitectsController < ApplicationController
     redirect_to architects_path
   end
 
+  def favorite
+    @architect = Architect.find(params[:id])
+      current_user.architects << @architect
+      redirect_to architect_path
+  end
 
+  def unfavorite
+    @architect = Architect.find(params[:id])
+      current_user.architects.delete(@architect)
+      redirect_to architect_path
+  end
 
 private 
 

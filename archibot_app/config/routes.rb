@@ -14,7 +14,10 @@ ArchibotApp::Application.routes.draw do
   get "/buildings", to: "buildings#index"
 
   post "/architects/:architect_id/buildings/:id/favorite", to: "buildings#favorite", as: "favorite"
-  post "/architects/:architect_id/buildings/:id/favorite", to: "buildings#unfavorite", as: "unfavorite"
+  post "/architects/:architect_id/buildings/:id/unfavorite", to: "buildings#unfavorite", as: "unfavorite"
+
+  post "/architects/:id/favorite", to: "architects#favorite", as: "favorite_architect"
+  post "/architects/:id/unfavorite", to: "architects#unfavorite", as: "unfavorite_architect"
 
 end
 

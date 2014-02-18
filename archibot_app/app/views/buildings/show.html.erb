@@ -27,19 +27,22 @@ Other buildings in the database close to this one:
   <% end %>
 <% end %>
 
+
+<div class="map">
+<img src="<%= @map %>">
+</div class="map">
+
 <br>
 <%=link_to("edit", edit_architect_building_path(@architect,@building)) %>
 <% unless @location == nil %>
 <br>Some photos taken near this location, from instagram:<br>
 <% @photos.each do |photo| %>
+<div class="insta">
 <img src = "<%=photo%>">
+</div class="insta">
 <%end%>
 <%end%>
 <br>
-<br>
-<div class="map">
-<img src="<%= @map %>">
-</div class="map">
 
 <br>
 

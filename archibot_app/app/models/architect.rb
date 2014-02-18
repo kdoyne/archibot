@@ -13,4 +13,5 @@ class Architect < ActiveRecord::Base
   validates :name, {presence: true, uniqueness: true}
   validates :style, {presence: true}
   has_many :buildings
+  has_and_belongs_to_many :users
 end

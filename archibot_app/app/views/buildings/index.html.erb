@@ -9,7 +9,9 @@ Buildings
       <a href="/architects/<%= @architect.id %>/buildings/<%= building.id %>/edit">Edit</a>
       
        <%= form_tag architect_building_path(@architect, building), method: "delete" do %>
+       <% if @user = admin? %>
         <%= submit_tag("Delete") %>
+        <%end%>
       <% end %>
       <%end%>
   </ul>
