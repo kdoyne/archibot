@@ -6,7 +6,7 @@ Buildings
     <li><%=link_to("#{building.name}", architect_building_path(@architect,building)) %>
     <br/>
       <%if @user = admin?%>
-        <%=link_to("edit", edit_architect_building_path(@architect,@building))%>
+        <%=link_to("edit", edit_architect_building_path(@architect, building))%>
         <%=form_tag architect_building_path(@architect, building), method: "delete" do %>
         <%=submit_tag("Delete")%>
         <%end%>
@@ -14,4 +14,5 @@ Buildings
     <%end%>
   </ul>
 <br>
+<p>Add a building to this architect to see it on a map, see other buildings nearby, and see instagram photos taken at that location.</p>
 <%=link_to("Add a building to this architect", new_architect_building_path(@architect.id))%>

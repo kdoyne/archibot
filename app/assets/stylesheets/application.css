@@ -33,10 +33,12 @@
 
 h2 {
   font-family: 'Comfortaa', cursive;
+  color: #2F4F4F;
 }
 
 p {
   font-family: 'Comfortaa', thin;
+  color: #2F4F4F;
 }
 
 img {
@@ -56,6 +58,7 @@ body {
   padding-left: 20px;
   padding-right: 20px;
   font-family: 'Comfortaa', thin;
+  color: #2F4F4F;
 }
 
 h2 {
