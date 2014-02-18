@@ -1,0 +1,14 @@
+<h2>Join Archibot</h2>
+
+<%= render "form" %>
+
+<% if @user.errors.count > 0 %>
+  <div id="errors">
+    <h3>Errors!</h3>
+    <ul>
+      <% @user.errors.messages.each do |field,error| %>
+        <li><%= "#{field.capitalize} #{error.first}!" %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

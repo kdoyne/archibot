@@ -1,0 +1,19 @@
+<h2>Archibot</h2>
+
+Add a new architect
+
+<% if @architect.errors.count > 0 %>
+  <div id="errors">
+    <h3>Errors!</h3>
+    <ul>
+      <% @architect.errors.messages.each do |field,error| %>
+        <li><%= "#{field.capitalize} #{error.first}!" %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<%= render "form" %>
+
+<%=link_to("Back to all architects", architects_path) %>

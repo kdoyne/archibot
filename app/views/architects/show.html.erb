@@ -1,0 +1,35 @@
+<br>
+<h2><%= @architect.name %></h2>
+<br>
+<h3><%= @architect.style %></h3>
+<br>
+<%=link_to("Buildings by this architect in the database", architect_buildings_path(@architect.id)) %>
+<br>
+<%=link_to("Add a buiding to this architect", architect_buildings_path(@architect.id)) %>
+<br>
+<%=link_to("Edit this architect", edit_architect_path) %>
+<br>
+<br>
+Suggested buildings to add:
+<ul>
+  <% @buildings_designed.each do |result| %>
+    <li><%= result %></li>
+  <% end %>
+</ul>
+
+<% if current_user %>
+  <% unless current_user.architects.include?(@architect)%>
+    <%= link_to "favorite", favorite_architect_path, method: :post %>
+  <% else %>
+    <%= link_to "unfavorite", unfavorite_architect_path, method: :post %>
+  <% end %>
+<% end %>
+
+
+<% if current_user && current_user.is_admin? %>
+  <%= form_tag architect_path(@architect), method: "delete" do %>
+    <%= submit_tag("Delete") %>
+  <% end %>
+<%end%>
+
+<%=link_to("Back to all architects", architects_path) %>

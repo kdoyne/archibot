@@ -1,0 +1,15 @@
+<%= form_for @architect do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :style %><br>
+  <%= f.text_field :style %><br>
+
+  <%= f.label "Year Born (year founded for firms)" %><br>
+  <%= f.text_field :year_born %><br>
+
+  <%= f.label :year_died %><br>
+  <%= f.text_field :year_died %><br>
+  
+  <%= f.submit %>
+<%end%>

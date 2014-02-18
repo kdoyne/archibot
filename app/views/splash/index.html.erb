@@ -1,0 +1,20 @@
+<h1>Welcome to Archibot!</h1>
+
+<div class="login_panel">
+  <p><%= link_to "Join Archibot", new_user_path %></p>
+  <p><%= link_to "Login", "/login" %></p>
+</div>
+
+<p><%= link_to "View the collection", architects_path %><p>
+<div class="smallpics">
+  <% @photos.each do |photo| %>
+    <img src = "<%=photo%>">
+  <%end%>
+</div class="smallpics">
+
+<%= form_tag architects_path, :method => 'get' do %>
+  <p>
+  <%= text_field_tag :search, nil, :placeholder => "Search architects here" %>
+  <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
