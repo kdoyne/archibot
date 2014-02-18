@@ -16,7 +16,7 @@
 <%= link_to("Log Out #{User.find_by(id:session[:user_id]).first_name}", "/sessions", method:"delete") unless session[:user_id].nil? %>
 </header>
 
-<%= yield %>
+<%=yield%>
 
 </body>
 </html>

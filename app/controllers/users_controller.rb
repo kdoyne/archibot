@@ -42,6 +42,7 @@ before_action :load_user, only: [:show, :edit, :update, :destroy]
 
   def destroy
     if @user = current_user || current_user.is_admin?
+      session[:user_id] = nil
       @user.destroy
       redirect_to root_path
     else

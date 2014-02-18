@@ -33,7 +33,9 @@ Other buildings in the database close to this one:
 </div class="map">
 
 <br>
+<% if current_user %>
 <%=link_to("edit", edit_architect_building_path(@architect,@building)) %>
+<%end%>
 <% unless @location == nil %>
   <br>Some photos taken near this location, from instagram:<br>
   <% @photos.each do |photo| %>

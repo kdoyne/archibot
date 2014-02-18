@@ -1,29 +1,31 @@
-<h2>Welcome <%=@user.first_name %>!</h2>
-<h3><%= link_to("Browse the database", architects_path) %></h3>
+
+<h2>Welcome <%=@user.first_name%>!</h2>
+<h3><%=link_to("Browse the database", architects_path)%></h3>
 
 <p>Full Name:
-  <%= @user.first_name %> <%= @user.last_name %></p>
+  <%=@user.first_name%><%=@user.last_name%></p>
 
 <p>Email Address:
-  <%= @user.email %></p>
+  <%=@user.email%></p>
 
+<p>Favorite Buildings</p>
 <ul>
-<% @favorites.each do |building| %>
-<li><%=link_to("#{building.name}", architect_building_path(building.architect.id, building.id)) %></li>
-<%end%>
+  <% @favorites.each do |building| %>
+    <li><%=link_to("#{building.name}", architect_building_path(building.architect.id, building.id))%></li>
+  <%end%>
 </ul>
-<br>
 
+<p>Favorite Architects</p>
 <ul>
 <% @favorite_architects.each do |architect| %>
-<li><%=link_to("#{architect.name}", architect_path(architect.id)) %></li>
+<li><%=link_to("#{architect.name}", architect_path(architect.id))%></li>
 <%end%>
 </ul>
 <br>
 
-<a href="/users/<%= @user.id %>/edit">Edit my info</a>
-<form action="/users/<%= @user.id%>" method="POST">
-  <input type ="hidden" name="_method" value="DELETE">
-  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-<button>Delete Account</button>
-</form>
+<% if current_user %>
+  <%= link_to("Edit My Info", edit_user_path(@user))%>
+  <%= form_tag user_path(@user), method: "delete" do%>
+    <%= submit_tag("Delete Account")%>
+  <%end%>
+<%end%>

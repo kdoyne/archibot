@@ -7,7 +7,9 @@
 <br>
 <%=link_to("Add a buiding to this architect", architect_buildings_path(@architect.id)) %>
 <br>
+<% if current_user %>
 <%=link_to("Edit this architect", edit_architect_path) %>
+<%end%>
 <br>
 <br>
 Suggested buildings to add:

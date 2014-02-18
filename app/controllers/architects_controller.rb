@@ -12,7 +12,6 @@
 
   def new
     @architect = Architect.new
-
   end
 
   def create
@@ -69,11 +68,11 @@ require 'addressable/uri'
     name = architect.name
     url = Addressable::URI.parse('https://www.googleapis.com/freebase/v1/search')
     url.query_values = {
-        query: name,
-        type: "/architecture/structure",
-        key: GOOGLE_CLIENT_ID
-          }
-      from_freebase = HTTParty.get(url, :format => :json)
+      query: name,
+      type: "/architecture/structure",
+      key: GOOGLE_CLIENT_ID
+        }
+    from_freebase = HTTParty.get(url, :format => :json)
     @results = from_freebase["result"]
     @buildings_designed = @results.map { |building| building["name"]}
   end

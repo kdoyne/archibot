@@ -1,18 +1,17 @@
-<br>
-<h2><%= @architect.name %></h2>
+<h2><%=@architect.name%></h2>
 
 Buildings
 <ul>
-  <% @buildings.each do |building| %>
+  <%@buildings.each do |building| %>
     <li><%=link_to("#{building.name}", architect_building_path(@architect,building)) %>
     <br/>
-    <a href="/architects/<%= @architect.id %>/buildings/<%= building.id %>/edit">Edit</a>
-      <% if @user = admin? %>
-        <%= form_tag architect_building_path(@architect, building), method: "delete" do %>
-        <%= submit_tag("Delete") %>
+      <%if @user = admin?%>
+        <%=link_to("edit", edit_architect_building_path(@architect,@building))%>
+        <%=form_tag architect_building_path(@architect, building), method: "delete" do %>
+        <%=submit_tag("Delete")%>
         <%end%>
       <%end%>
     <%end%>
   </ul>
 <br>
-<%=link_to("Add a building to this architect", new_architect_building_path(@architect.id)) %>
+<%=link_to("Add a building to this architect", new_architect_building_path(@architect.id))%>
