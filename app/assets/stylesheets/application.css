@@ -20,12 +20,17 @@
   width: 450px;
 }
 
+.bldgclose{
+  display: inline-block;
+}
+
 .insta img {
   float: left;
   display: inline-block;
   width: 300px;
   padding: 5px;
 }
+
 
 .field_with_errors {
   color: red;
@@ -50,6 +55,7 @@ header{
   color: #2F4F4F;
   width: 100%;
   font-family: 'Comfortaa';
+  padding: 10px;
 }
 
 body {
@@ -80,3 +86,14 @@ a:visited{
   color: #2F4F4F;
   font-family: 'Comfortaa', thin;
   }
+
+a:hover{
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+}
+
+
+

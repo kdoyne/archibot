@@ -11,6 +11,14 @@
 <%=link_to("Edit this architect", edit_architect_path) %>
 <%end%>
 <br>
+<% if current_user %>
+  <% unless current_user.architects.include?(@architect)%>
+    <%= link_to "favorite", favorite_architect_path, method: :post %>
+  <% else %>
+    <%= link_to "unfavorite", unfavorite_architect_path, method: :post %>
+  <% end %>
+<% end %>
+<br>
 <br>
 Suggested buildings to add:
 <ul>
@@ -19,13 +27,7 @@ Suggested buildings to add:
   <% end %>
 </ul>
 
-<% if current_user %>
-  <% unless current_user.architects.include?(@architect)%>
-    <%= link_to "favorite", favorite_architect_path, method: :post %>
-  <% else %>
-    <%= link_to "unfavorite", unfavorite_architect_path, method: :post %>
-  <% end %>
-<% end %>
+<%= @description %>
 
 
 <% if current_user && current_user.is_admin? %>
@@ -33,5 +35,8 @@ Suggested buildings to add:
     <%= submit_tag("Delete") %>
   <% end %>
 <%end%>
+
+<br>
+<br>
 
 <%=link_to("Back to all architects", architects_path) %>

@@ -3,21 +3,30 @@
 <br>
 Year Constructed: <%= @building.year_built%>
 <br>
-<div>
-<img src="<%= @building.photo_url %>">
-<div>
-<br>
 
+
+<img src="<%= @building.photo_url %>"></td>
+<p><%=@description%></p></td>
+
+<div class="bldgsclose">
 Other buildings in the database close to this one:
-<ul>
-<% if !@results[0].nil? %>
-  <% @results.each do |building| %>
-    <li><%=link_to("#{building.name}", architect_building_path(building.architect.id, building.id)) %></li>
-  <%end%>
-  <%else%>
-<%end%>
-<br>
+  <ul>
+    <% if !@results[0].nil? %>
+      <% @results.each do |building| %>
+        <li><%=link_to("#{building.name}", architect_building_path(building.architect.id, building.id)) %></li>
+      <%end%>
+      <%else%>
+    <%end%>
+  </ul>
 
+<div class="map">
+<img src="<%= @map %>">
+</div class="map">
+<div class="bldgsclose">
+
+
+
+<br>
 
 <% if current_user %>
   <% if !current_user.buildings.include?(@building)%>
@@ -26,11 +35,6 @@ Other buildings in the database close to this one:
     <%= link_to "unfavorite", unfavorite_path, method: :post %>
   <% end %>
 <% end %>
-
-
-<div class="map">
-<img src="<%= @map %>">
-</div class="map">
 
 <br>
 <% if current_user %>

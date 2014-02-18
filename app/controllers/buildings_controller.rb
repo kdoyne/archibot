@@ -14,6 +14,7 @@ class BuildingsController < ApplicationController
     unless @location == nil
       @photos = get_instagram_photos(@location)
     end
+    get_description(@building)
   end
 
   def new
@@ -96,6 +97,13 @@ private
   def get_instagram_photos(location_id)
     return_hash = HTTParty.get("https://api.instagram.com/v1/locations/#{location_id}/media/recent?client_id=#{INSTAGRAM_CLIENT_ID}")
     @instagram_photos = [return_hash["data"].sample["images"]["low_resolution"]["url"], return_hash["data"].sample["images"]["low_resolution"]["url"],return_hash["data"].sample["images"]["low_resolution"]["url"]]
+  end
+
+  def get_description(building)
+    search = FreebaseAPI.session.search("#{building.name}")
+    resource_id = search[0]["id"]
+    resource = FreebaseAPI::Topic.get("#{resource_id}")
+    @description = resource.description
   end
 end
 

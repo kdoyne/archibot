@@ -8,6 +8,7 @@
 
   def show
     find_buildings(@architect)
+    get_description(@architect)
   end
 
   def new
@@ -63,7 +64,6 @@ private
 
 require 'addressable/uri'
 
-
   def find_buildings(architect)
     name = architect.name
     url = Addressable::URI.parse('https://www.googleapis.com/freebase/v1/search')
@@ -79,6 +79,13 @@ require 'addressable/uri'
 
   def user_params
     params.require(:architect).permit(:name, :style, :year_born, :year_died)
+  end
+
+  def get_description(architect)
+    search = FreebaseAPI.session.search("#{architect.name}")
+    resource_id = search[0]["id"]
+    resource = FreebaseAPI::Topic.get("#{resource_id}")
+    @description = resource.description
   end
   
 end

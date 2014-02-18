@@ -44,6 +44,8 @@ gem 'addressable'
 
 gem 'rails_12factor', group: :production
 
+gem 'freebase-api'
+
 ruby "2.1.0"
 
 # Use ActiveModel has_secure_password
