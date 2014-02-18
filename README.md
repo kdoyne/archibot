@@ -11,8 +11,8 @@ This is an application that is designed for people visiting cities. You can brow
 * [Geocoder](https://github.com/alexreisner/geocoder)
 * [Google Static Maps](https://developers.google.com/maps/documentation/staticmaps/?c*sw=1)
 * [Instagram](http://instagram.com/developer/)
-* [Google Freebase Query](https://developers.google.com/freebase/
-)
+* [Google Freebase Query](https://developers.google.com/freebase/)
+* [PerfectMemory](https://github.com/PerfectMemory/freebase-api)
 
 ###User Stories
 
