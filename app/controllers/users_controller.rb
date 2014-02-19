@@ -32,11 +32,15 @@ before_action :load_user, only: [:show, :edit, :update, :destroy]
   end
 
   def update
-    @update_worked = @user.update(user_params)
-    if @update_worked
-      redirect_to user_path(@user)
+    if @user = current_user || current_user.is_admin?
+      @update_worked = @user.update(user_params)
+      if @update_worked
+        redirect_to user_path(@user)
+      else
+        render(:edit)
+      end
     else
-      render(:edit)
+      render nothing: true, status: 401
     end
   end
 
