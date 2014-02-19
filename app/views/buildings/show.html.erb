@@ -5,13 +5,10 @@ Year Constructed: <%= @building.year_built%>
 <br>
 Architect: <%=link_to("#{@building.architect.name}", architect_path(@building.architect.id) )%>
 <br>
-<table>
-  <tr>
-    <td><div class="bigphoto"><img src="<%= @building.photo_url %>"></div></td>
-<td><p><%=@description%></p></td>
-</tr>
-<tr>
-  <td>
+
+<div class="bigphoto"><img src="<%= @building.photo_url %>"></div>
+<p><%=@description%></p>
+
 <div class="bldgsclose">
 Other buildings in the database close to this one:
   <ul>
@@ -22,16 +19,11 @@ Other buildings in the database close to this one:
       <%else%>
     <%end%>
   </ul>
-</td>
-<td>
 <div class="map">
 <img src="<%= @map %>">
 </div class="map">
-</td>
-</tr>
 </div class="bldgsclose">
-</table>
-<br>
+
 
 <% if current_user %>
   <% if !current_user.buildings.include?(@building)%>
@@ -55,11 +47,13 @@ Other buildings in the database close to this one:
 <%end%>
 <br>
 <br>
-
+<br>
 <% if @user = admin? %>
   <%= form_tag architect_building_path(@architect, @building), method: "delete" do %>
   <%= submit_tag("Delete") %>
 <% end %>
 <%end%>
+<br>
+<br>
 
 
