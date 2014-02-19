@@ -3,11 +3,15 @@
 <br>
 Year Constructed: <%= @building.year_built%>
 <br>
-
-
-<img src="<%= @building.photo_url %>"></td>
-<p><%=@description%></p></td>
-
+Architect: <%=link_to("#{@building.architect.name}", architect_path(@building.architect.id) )%>
+<br>
+<table>
+  <tr>
+    <td><div class="bigphoto"><img src="<%= @building.photo_url %>"></div></td>
+<td><p><%=@description%></p></td>
+</tr>
+<tr>
+  <td>
 <div class="bldgsclose">
 Other buildings in the database close to this one:
   <ul>
@@ -18,14 +22,15 @@ Other buildings in the database close to this one:
       <%else%>
     <%end%>
   </ul>
-
+</td>
+<td>
 <div class="map">
 <img src="<%= @map %>">
 </div class="map">
-<div class="bldgsclose">
-
-
-
+</td>
+</tr>
+</div class="bldgsclose">
+</table>
 <br>
 
 <% if current_user %>
@@ -49,7 +54,6 @@ Other buildings in the database close to this one:
   <%end%>
 <%end%>
 <br>
-
 <br>
 
 <% if @user = admin? %>
