@@ -62,6 +62,8 @@ private
     @architect = Architect.find(params[:id])
   end
 
+require 'addressable/uri'
+
   def find_buildings(architect)
     name = architect.name
     url = Addressable::URI.parse('https://www.googleapis.com/freebase/v1/search')
