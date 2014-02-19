@@ -1,14 +1,10 @@
-##Archibot
+##[Archibot](archibot.herokuapp.com)
 
 GA WDI NYC Jan 14, Project 1
 
 ###Description
 
 This is an application that is designed for people visiting cities. You can browse by architect and get suggestions of buildings that they have designed. You can add a building of architectural significance and it will show buildings that other people have added in the same area. It will also show photos from instagram taken in that location. 
-
-See it in action:
-
-[Archibot](archibot.herokuapp.com)
 
 ###Technologies Used
 
@@ -27,3 +23,7 @@ See it in action:
 ###User Stories
 
 Check out the user stories on [PivotalTracker](https://www.pivotaltracker.com/s/projects/1015674).
+
+###ERB
+
+![erb][Archibot ERB]
