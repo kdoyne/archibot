@@ -1,4 +1,4 @@
-##[Archibot](archibot.herokuapp.com)
+##[Archibot](http://archibot.herokuapp.com)
 
 GA WDI NYC Jan 14, Project 1
 
