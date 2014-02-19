@@ -26,4 +26,4 @@ Check out the user stories on [PivotalTracker](https://www.pivotaltracker.com/s/
 
 ###ERB
 
-![erb][Archibot ERB]
+![erb][Archibot ERB.png]
