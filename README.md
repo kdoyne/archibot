@@ -6,6 +6,10 @@ GA WDI NYC Jan 14, Project 1
 
 This is an application that is designed for people visiting cities. You can browse by architect and get suggestions of buildings that they have designed. You can add a building of architectural significance and it will show buildings that other people have added in the same area. It will also show photos from instagram taken in that location. 
 
+See it in action:
+
+[Archibot](archibot.herokuapp.com)
+
 ###Technologies Used
 
 * Ruby 2.1.0
