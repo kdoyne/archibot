@@ -6,8 +6,12 @@ GA WDI NYC Jan 14, Project 1
 
 This is an application that is designed for people visiting cities. You can browse by architect and get suggestions of buildings that they have designed. You can add a building of architectural significance and it will show buildings that other people have added in the same area. It will also show photos from instagram taken in that location. 
 
-###Gems, APIs, libraries
+###Technologies Used
 
+* Ruby 2.1.0
+* Ruby on Rails 4.0.2
+* PostgreSQL Database
+* Authentication & Authorization using [bcrypt-ruby](http://bcrypt-ruby.rubyforge.org/)
 * [Geocoder](https://github.com/alexreisner/geocoder)
 * [Google Static Maps](https://developers.google.com/maps/documentation/staticmaps/?c*sw=1)
 * [Instagram](http://instagram.com/developer/)
@@ -18,4 +22,4 @@ This is an application that is designed for people visiting cities. You can brow
 
 ###User Stories
 
-[PivotalTracker](https://www.pivotaltracker.com/s/projects/1015674)
+Check out the user stories on [PivotalTracker](https://www.pivotaltracker.com/s/projects/1015674).
