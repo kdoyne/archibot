@@ -5,6 +5,14 @@ Year Constructed: <%= @building.year_built%>
 <br>
 Architect: <%=link_to("#{@building.architect.name}", architect_path(@building.architect.id) )%>
 <br>
+<% if current_user %>
+  <% if !current_user.buildings.include?(@building)%>
+    <%= link_to "favorite", favorite_path, method: :post %>
+  <% else %>
+    <%= link_to "unfavorite", unfavorite_path, method: :post %>
+  <% end %>
+<% end %>
+<br>
 
 <div class="bigphoto"><img src="<%= @building.photo_url %>"></div>
 <p><%=@description%></p>
@@ -24,14 +32,6 @@ Other buildings in the database close to this one:
 </div class="map">
 </div class="bldgsclose">
 
-
-<% if current_user %>
-  <% if !current_user.buildings.include?(@building)%>
-    <%= link_to "favorite", favorite_path, method: :post %>
-  <% else %>
-    <%= link_to "unfavorite", unfavorite_path, method: :post %>
-  <% end %>
-<% end %>
 
 <br>
 <% if current_user %>

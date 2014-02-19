@@ -20,6 +20,10 @@
   width: 200px;
 }
 
+.smallpics {
+  margin: 0 auto;
+}
+
 .map img {
   width: 450px;
 }
