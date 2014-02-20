@@ -23,3 +23,7 @@ This is an application that is designed for people visiting cities. You can brow
 ###User Stories
 
 Check out the user stories on [PivotalTracker](https://www.pivotaltracker.com/s/projects/1015674).
+
+###ERD
+
+![erd](./Archibot%20ERD.png)
