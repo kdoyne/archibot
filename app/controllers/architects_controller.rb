@@ -89,18 +89,6 @@ require 'addressable/uri'
     end
     resource = FreebaseAPI::Topic.get("#{resource_id}")
     @description = resource.description
+  end
 end
-end
-
-
-
-
-
-
-
-
-
-
-
-
 

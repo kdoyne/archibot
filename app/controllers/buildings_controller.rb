@@ -7,13 +7,9 @@ class BuildingsController < ApplicationController
   end
 
   def show
-    @buildings = Building.where(architect_id: params[:architect_id])
     find_entries(@building)
-    @map = get_map(@building,@results)
-    @location = get_instagram_location_id(@building)
-    unless @location == nil
-      @photos = get_instagram_photos(@location)
-    end
+    @map = get_map(@building,@buildings_nearby)
+    pull_photos(@building)
     get_description(@building)
   end
 
@@ -51,14 +47,14 @@ class BuildingsController < ApplicationController
 
   def favorite
     @building = Building.find(params[:id])
-      current_user.buildings << @building
-      redirect_to architect_building_path
+    current_user.buildings << @building
+    redirect_to architect_building_path
   end
 
   def unfavorite
     @building = Building.find(params[:id])
-      current_user.buildings.delete(@building)
-      redirect_to architect_building_path
+    current_user.buildings.delete(@building)
+    redirect_to architect_building_path
   end
 
 private
@@ -76,11 +72,11 @@ private
   end
 
   def find_entries(building)
-    @results = building.nearbys(3)
+    @buildings_nearby = building.nearbys(3)
   end
 
-  def get_map(building, array)
-    each_result = array.map { |building| "markers=color:green%7Clabel:%7C#{building.latitude},#{building.longitude}&" }
+  def get_map(building, array_of_buildings_nearby)
+    each_result = array_of_buildings_nearby.map { |building| "markers=color:green%7Clabel:%7C#{building.latitude},#{building.longitude}&" }
     map_from_google = "http://maps.googleapis.com/maps/api/staticmap?center=#{building.latitude},#{building.longitude}&zoom=13&size=1300x1000&maptype=roadmap&markers=color:red%7Clabel:%7C#{building.latitude},#{building.longitude}&"+each_result.join+"sensor=false&key=#{GOOGLE_CLIENT_ID}"
     return map_from_google
   end
@@ -104,6 +100,13 @@ private
     resource_id = search[0]["id"]
     resource = FreebaseAPI::Topic.get("#{resource_id}")
     @description = resource.description
+  end
+
+  def pull_photos(building)
+    @location = get_instagram_location_id(building)
+    unless @location == nil
+      @photos = get_instagram_photos(@location)
+    end
   end
 end
 

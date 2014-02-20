@@ -20,8 +20,8 @@ Architect: <%=link_to("#{@building.architect.name}", architect_path(@building.ar
 <div class="bldgsclose">
 Other buildings in the database close to this one:
   <ul>
-    <% if !@results[0].nil? %>
-      <% @results.each do |building| %>
+    <% if !@buildings_nearby[0].nil? %>
+      <% @buildings_nearby.each do |building| %>
         <li><%=link_to("#{building.name}", architect_building_path(building.architect.id, building.id)) %></li>
       <%end%>
       <%else%>
@@ -31,7 +31,6 @@ Other buildings in the database close to this one:
 <img src="<%= @map %>">
 </div class="map">
 </div class="bldgsclose">
-
 
 <br>
 <% if current_user %>
@@ -55,5 +54,3 @@ Other buildings in the database close to this one:
 <%end%>
 <br>
 <br>
-
-
