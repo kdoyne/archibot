@@ -8,7 +8,7 @@
 
 Architect.delete_all
 Building.delete_all
-User.delete_all
+# User.delete_all
 
 frank = Architect.create(name: "Frank Lloyd Wright", year_born: 1867 ,year_died: 1959,style: "Arts and Crafts")
 will = Architect.create(name: "William Van Alen", year_born: 1883, year_died: 1954, style: "Art Deco")
@@ -28,4 +28,4 @@ Building.create(name: "Longchamps Soho", address: "132 Spring St, New York, NY 1
 Building.create(name: "New Museum of Contemporary Art", address: "235 Bowery, New York, NY 10002", year_built: 2007, photo_url: "http://static.artfagcity.com/wordpress_core/wp-content/uploads/2009/11/newmuseum460.jpg", architect: sanaa)
 Building.create(name: "Crown Hall", address: "3360 S. State Street, Chicago, Cook County, Illinois", year_built: 1956, photo_url: "http://www.greatbuildings.com/gbc/images/cid_1160283473_Crown_Hall_06.jpg", architect: mies)
 
-User.create(first_name: "Kirsten", last_name: "Doyne", password: "password", password_confirmation: "password", is_admin: true, email:"kdoyne930@gmail.com")
+# User.create(first_name: "Kirsten", last_name: "Doyne", password: "password", password_confirmation: "password", is_admin: true, email:"kdoyne930@gmail.com")

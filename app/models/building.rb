@@ -18,6 +18,7 @@ class Building < ActiveRecord::Base
   validates :architect, {presence: true}
   geocoded_by :address
   after_validation :geocode
+  before_save :get_description
   belongs_to :architect
   has_and_belongs_to_many :users
 

@@ -15,10 +15,9 @@ Architect: <%=link_to("#{@building.architect.name}", architect_path(@building.ar
 <br>
 
 <div class="bigphoto"><img src="<%= @building.photo_url %>"></div>
-<p><%=@description%></p>
+<p><%=@building.description%></p>
 
-<div class="bldgsclose">
-Other buildings in the database close to this one:
+<p>Other buildings in the database close to this one:</p>
   <ul>
     <% if !@buildings_nearby[0].nil? %>
       <% @buildings_nearby.each do |building| %>
@@ -30,7 +29,6 @@ Other buildings in the database close to this one:
 <div class="map">
 <img src="<%= @map %>">
 </div class="map">
-</div class="bldgsclose">
 
 <br>
 <% if current_user %>
@@ -44,7 +42,6 @@ Other buildings in the database close to this one:
     </div class="insta">
   <%end%>
 <%end%>
-<br>
 <br>
 <br>
 <% if @user = admin? %>

@@ -1,4 +1,5 @@
 class BuildingsController < ApplicationController
+  include MethodHelper
   before_action :load_architect, only: [:index, :show, :edit, :create, :new, :destroy]
   before_action :load_building, only: [:show, :edit, :destroy, :update]
 
@@ -10,7 +11,12 @@ class BuildingsController < ApplicationController
     find_entries(@building)
     @map = get_map(@building,@buildings_nearby)
     pull_photos(@building)
-    get_description(@building)
+    if @building.description != nil
+      @description = @building.description
+    else
+      @description = get_description(@building)
+      @building.description = @description
+    end
   end
 
   def new
@@ -20,7 +26,13 @@ class BuildingsController < ApplicationController
   def create
     @building = Building.new(user_params)
     @building.architect = @architect
-    @building.save
+    @building_description = get_building_description(@building)
+    if @building.description == nil
+      @building.description << @building_description
+      @building.save
+    else
+      @building.save
+    end
     if @building.save
       redirect_to architect_building_path(@architect, @building)
     else
@@ -69,44 +81,6 @@ private
 
   def load_building
     @building = Building.find(params[:id])
-  end
-
-  def find_entries(building)
-    @buildings_nearby = building.nearbys(3)
-  end
-
-  def get_map(building, array_of_buildings_nearby)
-    each_result = array_of_buildings_nearby.map { |building| "markers=color:green%7Clabel:%7C#{building.latitude},#{building.longitude}&" }
-    map_from_google = "http://maps.googleapis.com/maps/api/staticmap?center=#{building.latitude},#{building.longitude}&zoom=13&size=1300x1000&maptype=roadmap&markers=color:red%7Clabel:%7C#{building.latitude},#{building.longitude}&"+each_result.join+"sensor=false&key=#{GOOGLE_CLIENT_ID}"
-    return map_from_google
-  end
-
-  def get_instagram_location_id(building)
-    return_hash = HTTParty.get("https://api.instagram.com/v1/locations/search?lat=#{building.latitude}&lng=#{building.longitude}&distance=25&client_id=#{INSTAGRAM_CLIENT_ID}")
-    data = return_hash["data"]
-    location_hash = data.detect { |item| item["name"].include?(@building.name) }
-    unless location_hash == nil
-      location = location_hash["id"]
-    end
-  end
-
-  def get_instagram_photos(location_id)
-    return_hash = HTTParty.get("https://api.instagram.com/v1/locations/#{location_id}/media/recent?client_id=#{INSTAGRAM_CLIENT_ID}")
-    @instagram_photos = [return_hash["data"].sample["images"]["low_resolution"]["url"], return_hash["data"].sample["images"]["low_resolution"]["url"],return_hash["data"].sample["images"]["low_resolution"]["url"]]
-  end
-
-  def get_description(building)
-    search = FreebaseAPI.session.search("#{building.name}")
-    resource_id = search[0]["id"]
-    resource = FreebaseAPI::Topic.get("#{resource_id}")
-    @description = resource.description
-  end
-
-  def pull_photos(building)
-    @location = get_instagram_location_id(building)
-    unless @location == nil
-      @photos = get_instagram_photos(@location)
-    end
   end
 end
 
