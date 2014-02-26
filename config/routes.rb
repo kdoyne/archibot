@@ -3,7 +3,9 @@ ArchibotApp::Application.routes.draw do
     resources :buildings
   end
 
-  resources :users
+  resources :users do
+    resources :trips
+  end
 
   get "/login", to: "sessions#new"
   post "/sessions", to: "sessions#create"

@@ -8,6 +8,7 @@ before_action :load_user, only: [:show, :edit, :update, :destroy]
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       render(:new)
@@ -23,6 +24,9 @@ before_action :load_user, only: [:show, :edit, :update, :destroy]
       end
       if current_user.architects != nil 
         @favorite_architects = current_user.architects
+      end
+      if current_user.trips != nil
+        @trips = current_user.trips
       end
     end
   end

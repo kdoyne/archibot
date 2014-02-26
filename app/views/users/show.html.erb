@@ -23,6 +23,13 @@
 </ul>
 <br>
 
+<p>Trips</p>
+<ul>
+  <% @trips.each do |trip| %>
+  <li><%= link_to(trip.title, user_trip_path(current_user, trip))%></li>
+  <%end%>
+</ul>
+
 <% if current_user %>
   <%= link_to("Edit My Info", edit_user_path(@user))%>
   <%= form_tag user_path(@user), method: "delete" do%>

@@ -1,0 +1,16 @@
+
+<h2>Make a New Trip</h2>
+
+<%= form_for [current_user, @trip] do |f| %>
+  <%= f.label :title %><br>
+  <%= f.text_field :title %><br>
+
+  <%= f.label :location %><br>
+  <%= f.text_field :location %><br>
+
+  <%= f.label :buildings %><br>
+  <%= f.select :buildings, options_from_collection_for_select(Building.all, :id, :name), {}, { multiple: true } %><br>
+
+  <%= f.submit "Save Trip" %>
+<%end%>
+

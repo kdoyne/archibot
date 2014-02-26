@@ -14,6 +14,8 @@ Architect: <%=link_to("#{@building.architect.name}", architect_path(@building.ar
 <% end %>
 <br>
 
+<%= link_to "Create Trip", new_user_trip_path(current_user) %>
+
 <div class="bigphoto"><img src="<%= @building.photo_url %>"></div>
 <p><%=@building.description%></p>
 
