@@ -1,6 +1,6 @@
 module MethodHelper
 
-require 'Addressable'
+require 'addressable'
   # Finds buildings from freebase designed by the architect.
   def find_buildings(architect)
     name = architect.name
