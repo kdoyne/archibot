@@ -1,37 +1,42 @@
 <br>
-<h2><%= @building.name%></h2>
-<br>
-Year Constructed: <%= @building.year_built%>
-<br>
-Architect: <%=link_to("#{@building.architect.name}", architect_path(@building.architect.id) )%>
-<br>
-<% if current_user %>
-  <% if !current_user.buildings.include?(@building)%>
-    <%= link_to "favorite", favorite_path, method: :post %>
-  <% else %>
-    <%= link_to "unfavorite", unfavorite_path, method: :post %>
+<div class="building-title">
+  <h2><%= @building.name%></h2>
+  <h3>Year Constructed: <%= @building.year_built%></h3>
+  <h3>Architect: <%=link_to("#{@building.architect.name}", architect_path(@building.architect.id) )%></h3>
+</div>
+<div class="favorite">
+  <% if current_user %>
+    <% if !current_user.buildings.include?(@building)%>
+      <%= link_to "favorite", favorite_path, method: :post %>
+    <% else %>
+      <%= link_to "unfavorite", unfavorite_path, method: :post %>
+    <% end %>
   <% end %>
-<% end %>
-<br>
-
-<%= link_to "Create Trip", new_user_trip_path(current_user) %>
+  <%= link_to "Create Trip", new_user_trip_path(current_user) %>
+</div>
 
 <div class="bigphoto"><img src="<%= @building.photo_url %>"></div>
-<p><%=@building.description%></p>
 
-<p>Other buildings in the database close to this one:</p>
-  <ul>
-    <% if !@buildings_nearby[0].nil? %>
-      <% @buildings_nearby.each do |building| %>
-        <li><%=link_to("#{building.name}", architect_building_path(building.architect.id, building.id)) %></li>
-      <%end%>
-      <%else%>
-    <%end%>
-  </ul>
-<div class="map">
-<img src="<%= @map %>">
-</div class="map">
+<div class="building-description">
+  <p><%=@building.description%></p>
+</div>
 
+<div class="closebldgs">
+  <div class="map">
+    <img src="<%= @map %>">
+  </div class="map">
+  <div class="bldglist">
+    <span>Other buildings in the database close to this one:</span>
+      <ul>
+        <% if !@buildings_nearby[0].nil? %>
+          <% @buildings_nearby.each do |building| %>
+            <li><%=link_to("#{building.name}", architect_building_path(building.architect.id, building.id)) %></li>
+          <%end%>
+          <%else%>
+        <%end%>
+      </ul>
+  </div>
+</div>
 <br>
 <% if current_user %>
 <%=link_to("edit", edit_architect_building_path(@architect,@building)) %>

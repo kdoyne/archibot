@@ -1,24 +1,27 @@
 <br>
-<h2><%= @architect.name %></h2>
-<br>
-<h3><%= @architect.style %></h3>
-<br>
-<%=link_to("Buildings by this architect in the database", architect_buildings_path(@architect.id)) %>
-<br>
-<%=link_to("Add a buiding to this architect", architect_buildings_path(@architect.id)) %>
-<br>
-<% if current_user %>
-<%=link_to("Edit this architect", edit_architect_path) %>
-<%end%>
-<br>
-<% if current_user %>
-  <% unless current_user.architects.include?(@architect)%>
-    <%= link_to "favorite", favorite_architect_path, method: :post %>
-  <% else %>
-    <%= link_to "unfavorite", unfavorite_architect_path, method: :post %>
+<div class="architect-title">
+  <h2><%= @architect.name %></h2>
+  <h3><%= @architect.style %></h3>
+</div>
+<div class="architect-links">
+  <%=link_to("Buildings by this architect in the database", architect_buildings_path(@architect.id)) %>
+  <br>
+  <%=link_to("Add a buiding to this architect", architect_buildings_path(@architect.id)) %>
+  <br>
+  <% if current_user %>
+  <%=link_to("Edit this architect", edit_architect_path) %>
+  <%end%>
+  <br>
+  <% if current_user %>
+    <% unless current_user.architects.include?(@architect)%>
+      <%= link_to "favorite", favorite_architect_path, method: :post %>
+    <% else %>
+      <%= link_to "unfavorite", unfavorite_architect_path, method: :post %>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 <br>
+<div class="architect-description"><%= @description %></div>
 <br>
 Suggested buildings to add:
 <ul>
@@ -26,9 +29,6 @@ Suggested buildings to add:
     <li><%= result %></li>
   <% end %>
 </ul>
-
-<%= @description %>
-
 
 <% if current_user && current_user.is_admin? %>
   <%= form_tag architect_path(@architect), method: "delete" do %>

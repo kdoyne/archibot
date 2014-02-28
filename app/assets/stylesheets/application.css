@@ -8,12 +8,15 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require normalize
  *= require_self
  *= require_tree .
  */
 
 .bigphoto img {
-  padding-right: 15px;
+  margin: 20px;
+  border-radius: 10px;
+  margin-left: 90px;
 }
 
 .smallpics img {
@@ -26,6 +29,7 @@
 
 .map img {
   width: 450px;
+  border-radius: 10px;
 }
 
 .bldgclose{
@@ -44,10 +48,6 @@
   display: inline-block;
 }
 
-table {
-  border-spacing: 20px;
-}
-
 td {
   padding: 10px;
 }
@@ -57,12 +57,17 @@ td {
 }
 
 h2 {
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Comfortaa', thin;
+  color: #2F4F4F;
+}
+
+h3 {
+  font-family: 'Comfortaa', thin;
   color: #2F4F4F;
 }
 
 p {
-  font-family: 'Comfortaa', thin;
+  font-family: 'Merriweather', serif;
   color: #2F4F4F;
 }
 
@@ -77,6 +82,17 @@ header{
   font-family: 'Comfortaa';
   margin-left: -20px;
   padding: 10px;
+  text-align: right;
+}
+
+header ul{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+header li{
+  display: inline;
+  padding: 10px;
 }
 
 body {
@@ -88,7 +104,7 @@ body {
 #wrapper {
   width: 900px;
   margin-top: 20px;
-  background-color: rgba(194,223,238,1);
+  background-color: rgba(154,202,227,1);
   padding-left: 20px;
   padding-right: 20px;
   font-family: 'Comfortaa', thin;
@@ -123,6 +139,82 @@ a:hover{
 
 ul {
   list-style-type: none;
+}
+
+div .architect-links {
+  text-align: right;
+  margin-top: 20px;
+}
+
+div .architect-description {
+  font-family: 'Merriweather', serif;
+  width: 700px;
+  margin: 0 auto;
+  background-color: rgba(194,223,238,1);
+  padding: 10px;
+  border-radius: 10px;
+  clear: both;
+}
+
+div .architect-title {
+  float: left;
+}
+
+div .building-links {
+  text-align: right;
+  margin-top: 20px;
+  display: block;
+}
+
+div .building-description {
+  font-family: 'Merriweather', serif;
+  width: 700px;
+  margin: 0 auto;
+  background-color: rgba(194,223,238,1);
+  padding: 10px;
+  border-radius: 10px;
+  clear: both;
+}
+
+div .building-title {
+  width: 50%;
+  vertical-align: top;
+  padding: 0 20px;
+}
+
+div .favorite {
+  clear: both;  
+  display: block;
+  padding: 0 20px;
+}
+
+div .bigphoto {
+  top: 40px;
+  border-radius: 10px;
+}
+
+div .closebldgs {
+  width: 870px;
+  margin-top: 30px;
+  margin: 30px auto;
+  background-color: rgba(194,223,238,1);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+div .bldglist {
+  display: inline-block;
+  padding: 20px;
+  width: 370px;
+  padding-bottom: 0px;
+}
+
+div .bldglist ul {
+  padding: 0px;
+}
+
+div .map {
+  display: inline-block;
 }
 
 
