@@ -1,0 +1,45 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/kirsten/dev/architbot/config/environment.rb": [
+        null,
+        1,
+        null,
+        null,
+        0
+      ],
+      "/Users/kirsten/dev/architbot/config/application.rb": [
+        1,
+        null,
+        0,
+        null,
+        null,
+        null,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/kirsten/dev/architbot/config/boot.rb": [
+        null,
+        1,
+        null,
+        1
+      ]
+    },
+    "timestamp": 1393598009
+  }
+}

@@ -9,7 +9,12 @@
 
   def show
     find_buildings(@architect)
-    get_description(@architect)
+    if @architect.description != nil
+      @description = @architect.description
+    else
+      @description = get_description(@architect)
+      @architect.description = @description
+    end
   end
 
   def new

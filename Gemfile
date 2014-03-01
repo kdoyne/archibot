@@ -40,6 +40,7 @@ group :development, :test do
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'ffaker'
+  gem 'simplecov'
 end
 
 gem 'bcrypt-ruby', '~> 3.1.2'

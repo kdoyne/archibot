@@ -113,11 +113,6 @@ body {
   height: 100%;
 }
 
-h2 {
-  color: #2F4F4F;
-  font-family: 'Comfortaa';
-}
-
 h1 {
   color: #2F4F4F;
   font-family: 'Comfortaa';
@@ -147,7 +142,7 @@ div .architect-links {
 }
 
 div .architect-description {
-  font-family: 'Merriweather', serif;
+  font-family: 'Comfortaa', thin;
   width: 700px;
   margin: 0 auto;
   background-color: rgba(194,223,238,1);
@@ -167,7 +162,7 @@ div .building-links {
 }
 
 div .building-description {
-  font-family: 'Merriweather', serif;
+  font-family: 'Comfortaa', thin;
   width: 700px;
   margin: 0 auto;
   background-color: rgba(194,223,238,1);

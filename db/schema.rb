@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225234529) do
+ActiveRecord::Schema.define(version: 20140301165700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140225234529) do
     t.integer "year_born"
     t.integer "year_died"
     t.string  "style"
+    t.text    "description"
   end
 
   create_table "architects_users", force: true do |t|

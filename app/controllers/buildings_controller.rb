@@ -14,7 +14,7 @@ class BuildingsController < ApplicationController
     if @building.description != nil
       @description = @building.description
     else
-      @description = get_description(@building)
+      @description = get_building_description(@building)
       @building.description = @description
     end
   end
@@ -28,7 +28,7 @@ class BuildingsController < ApplicationController
     @building.architect = @architect
     @building_description = get_building_description(@building)
     if @building.description == nil
-      @building.description << @building_description
+      @building.description = @building_description
       @building.save
     else
       @building.save
