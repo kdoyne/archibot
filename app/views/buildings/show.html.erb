@@ -1,4 +1,3 @@
-<br>
 <div class="building-title">
   <h2><%= @building.name%></h2>
   <h3>Year Constructed: <%= @building.year_built%></h3>
@@ -35,6 +34,7 @@
             <li><%=link_to("#{building.name}", architect_building_path(building.architect.id, building.id)) %></li>
           <%end%>
           <%else%>
+          <p>There are no buildings close by in the database</p>
         <%end%>
       </ul>
   </div>
@@ -50,6 +50,8 @@
     <img src = "<%=photo%>">
     </div class="insta">
   <%end%>
+  <%else%>
+    <p>There are no available photos from this location</p>
 <%end%>
 <br>
 <br>

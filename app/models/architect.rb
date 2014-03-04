@@ -12,7 +12,7 @@
 class Architect < ActiveRecord::Base
   validates :name, {presence: true, uniqueness: true}
   validates :style, {presence: true}
-  has_many :buildings
+  has_many :buildings, dependent: :destroy 
   has_and_belongs_to_many :users
 
   def self.search(query)

@@ -50,8 +50,9 @@ class BuildingsController < ApplicationController
 
   def destroy
     if current_user.is_admin?
+      @architect = @building.architect
       @building.destroy
-      redirect_to architect
+      redirect_to architect_path(@architect)
     else
       render nothing: true, status: 401
     end

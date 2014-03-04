@@ -65,9 +65,13 @@ require 'addressable/uri'
   # pulls a description of the building from freebase - from Wikipedia
   def get_building_description(building)
     search = FreebaseAPI.session.search("#{building.name}")
-    resource_id = search[0]["id"]
-    resource = FreebaseAPI::Topic.get("#{resource_id}")
-    @building_description = resource.description
+    if search != []
+      resource_id = search[0]["id"]
+      resource = FreebaseAPI::Topic.get("#{resource_id}")
+      @building_description = resource.description
+    else
+      @building_description = "There is no available description for this project."
+    end
   end  
 
   # Pulls photos for the splash page from instagram
